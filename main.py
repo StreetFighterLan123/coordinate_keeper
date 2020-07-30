@@ -10,26 +10,26 @@ os.chdir(r"C:\Users\OmarT\git_stuff\coordinate_keeper")
 
 while running:
     with open('cords.json', 'r') as f:
-        places = json.load(f)
+        locations = json.load(f)
     r = False
     print("\n")
     choice = input("Add, read, or specify? (choose one): ").lower().strip()
     if choice == "add":
-        choice = input("What is the place/name tag you want to assign?: ")
-        if not f'{choice}' in places:
-            places[f'{choice.strip().lower()}'] = {}
-        cords = input("What are the coordinates of this place?: ")
-        places[f'{choice}'] = cords
+        choice = input("What is the location name? : ")
+        if not f'{choice}' in locations:
+            locations[f'{choice.strip().lower()}'] = {}
+        cords = input("What are the coordinates of this location?: ")
+        locations[f'{choice}'] = cords
         with open('cords.json', 'w') as f:
-            json.dump(places, f)
+            json.dump(locations, f)
     elif choice == "read":
-        print(places)
-    elif choice == "specify":
-        choice = input("What place would you like to see if you have?: ")
-        if choice.strip().lower() in places:
-            print(f'{choice.strip().lower()} : {places[choice.strip().lower()]}')
+        print(locations)
+    elif choice == "search":
+        choice = input("What location would you like to see if you have?: ")
+        if choice.strip().lower() in locations:
+            print(f'{choice.strip().lower()} : {locations[choice.strip().lower()]}')
         else:
-            print("This place doesn't exist.")
+            print("This location doesn't exist.")
     elif choice == "quit":
         running = False
         exit()
