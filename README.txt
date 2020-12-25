@@ -5,4 +5,4 @@ your path though).
 Right now there is only the python file and you will have to have python
 installed and added to your path, but I plan to add an executable later.
 
-- Omar
+
